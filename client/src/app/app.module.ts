@@ -15,6 +15,7 @@ import { TopicListComponent } from './components/topic-list/topic-list.component
 import { TopicDetailComponent } from './components/topic-detail/topic-detail.component';
 import { VoteFormComponent } from './components/vote-form/vote-form.component';
 import { AllTopicsComponent } from './components/all-topics/all-topics.component';
+import { AuthInterceptor } from './services/auth.interceptor';
 
 
 @NgModule({
@@ -33,8 +34,7 @@ import { AllTopicsComponent } from './components/all-topics/all-topics.component
     AllTopicsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [
-  ],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

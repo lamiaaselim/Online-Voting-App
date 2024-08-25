@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TopicService } from 'src/app/services/topic.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AdminDashboardComponent {
 
+  topics: any[] = [];
+
+  constructor(private topicService: TopicService) {}
+
+  ngOnInit(): void {
+    this.topicService.getAllTopics().subscribe((data) => {
+      this.topics = data;
+    });
+  }
 }
