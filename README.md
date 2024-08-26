@@ -105,8 +105,6 @@ src/
 │
 ├── app/
 │   ├── components/
-│   │   ├── admin/
-│   │   │   ├── topic-management/
 │   │   │   │   ├── topic-list/
 │   │   │   │   │   └── topic-list.component.ts
 │   │   │   │   │   └── topic-list.component.html
@@ -114,9 +112,9 @@ src/
 │   │   │   │       └── topic-detail.component.ts
 │   │   │   │       └── topic-detail.component.html
 │   │   │   └── admin-dashboard/
-│   │   │       └── admin-dashboard.component.ts
-│   │   │       └── admin-dashboard.component.html
-│   │   ├── user/
+│   │   │   │   └── admin-dashboard.component.ts
+│   │   │   │   └── admin-dashboard.component.html
+│   │   │   │ 
 │   │   │   ├── voting/
 │   │   │   │   └── voting.component.ts
 │   │   │   │   └── voting.component.html

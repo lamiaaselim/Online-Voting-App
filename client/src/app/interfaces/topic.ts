@@ -1,7 +1,13 @@
+export interface Option {
+  option: string;
+  votes: number;
+}
+
+
 export interface Topic {
-  _id: string;
+  _id?: string;
   statement: string;
-  options: { option: string, votes: number }[];
+  options: Option[];
   startDate: Date;
   endDate: Date;
   isCancelled: boolean;

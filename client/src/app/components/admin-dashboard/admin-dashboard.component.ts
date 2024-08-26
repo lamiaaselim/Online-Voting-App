@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Topic } from 'src/app/interfaces/topic';
 import { TopicService } from 'src/app/services/topic.service';
 
 @Component({
@@ -6,15 +7,13 @@ import { TopicService } from 'src/app/services/topic.service';
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.scss']
 })
-export class AdminDashboardComponent {
+export class AdminDashboardComponent implements OnInit {
 
   topics: any[] = [];
 
   constructor(private topicService: TopicService) {}
 
-  ngOnInit(): void {
-    this.topicService.getAllTopics().subscribe((data) => {
-      this.topics = data;
-    });
+  ngOnInit() {
+    this.topicService.getAllTopics().subscribe(topics => this.topics = topics);
   }
 }

@@ -1,1 +1,25 @@
-<p>audience-home works!</p>
+<div class="container mt-4">
+  <!-- Current Active Topics -->
+  <h2>Current Active Topics</h2>
+  <ul class="list-group mb-4">
+    <li class="list-group-item" *ngFor="let topic of activeTopics">
+      <a class="link-underline link-underline-opacity-0 font-weight-bold fs-5" [routerLink]="['/topic', topic._id]">{{ topic.statement }}</a>
+    </li>
+  </ul>
+
+  <!-- Recent Finished Topics -->
+  <h2>Recent Finished Topics</h2>
+  <ul class="list-group mb-4">
+    <li class="list-group-item" *ngFor="let topic of recentFinishedTopics">
+      <a class="link-underline link-underline-opacity-0 font-weight-bold fs-5" [routerLink]="['/topic', topic._id]">{{ topic.statement }}</a>
+    </li>
+  </ul>
+
+  <!-- Coming Soon Topics -->
+  <h2>Coming Soon Topics</h2>
+  <ul class="list-group mb-4">
+    <li class="list-group-item" *ngFor="let topic of comingSoonTopics">
+      <a class="link-underline link-underline-opacity-0 font-weight-bold fs-5" [routerLink]="['/topic', topic._id]">{{ topic.statement }}</a>
+    </li>
+  </ul>
+</div>

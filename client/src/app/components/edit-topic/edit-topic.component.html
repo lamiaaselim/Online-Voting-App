@@ -1,0 +1,97 @@
+<div class="container mt-4">
+  <h2>Edit Topic</h2>
+
+  <form #topicForm="ngForm" (ngSubmit)="onSubmit(topicForm)">
+    <div class="form-group">
+      <label for="statement">Statement</label>
+      <input
+        id="statement"
+        type="text"
+        class="form-control"
+        name="statement"
+        [(ngModel)]="topic.statement"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="startDate">Start Date</label>
+      <input
+        id="startDate"
+        type="date"
+        class="form-control"
+        name="startDate"
+        [(ngModel)]="topic.startDate"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="endDate">End Date</label>
+      <input
+        id="endDate"
+        type="date"
+        class="form-control"
+        name="endDate"
+        [(ngModel)]="topic.endDate"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Options</label>
+      <div
+        *ngFor="let option of topic.options; let i = index"
+        class="input-group mb-2"
+      >
+        <input
+          type="text"
+          class="form-control"
+          name="option"
+          [(ngModel)]="option.option"
+          placeholder="Option"
+          required
+        />
+        <input
+          type="number"
+          class="form-control"
+          name="votes"
+          [(ngModel)]="option.votes"
+          placeholder="Votes"
+          required
+        />
+
+        <div class="input-group-append">
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="removeOption(i)"
+          >
+            Remove
+          </button>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        class="btn btn-secondary mt-2"
+        (click)="addOption()"
+      >
+        Add Option
+      </button>
+    </div>
+
+    <div class="form-group form-check">
+      <input
+        id="isCancelled"
+        type="checkbox"
+        class="form-check-input"
+        name="isCancelled"
+        [(ngModel)]="topic.isCancelled"
+      />
+      <label for="isCancelled" class="form-check-label">Is Cancelled</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update Topic</button>
+  </form>
+</div>

@@ -1,1 +1,9 @@
-<p>topic-list works!</p>
+<!-- topic-list.component.html -->
+<div class="container mt-4">
+  <h2>Topic List</h2>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let topic of topics">
+      <a [routerLink]="['/topic', topic._id]">{{ topic.statement }}</a>
+    </li>
+  </ul>
+</div>

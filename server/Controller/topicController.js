@@ -50,6 +50,20 @@ exports.updateTopic = async (req, res) => {
   }
 };
 
+exports.getTopicById = async (req, res, next) => {
+  try {
+    const topic = await TopicSchema.findById(req.params.id);
+
+    if (!topic) {
+      return res.status(404).json({ error: "Topic not found" });
+    }
+
+    res.json(topic);
+  } catch (error) {
+    next(error);
+  }
+};
+
 // Show Voting Results for the specified topic
 exports.getResults = async (req, res) => {
   try {

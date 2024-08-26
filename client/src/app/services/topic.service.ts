@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Topic } from '../interfaces/topic';
 
 @Injectable({
   providedIn: 'root'
@@ -11,19 +12,24 @@ export class TopicService {
 
   constructor(private http: HttpClient) {}
 
-  getAllTopics(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+  getAllTopics(): Observable<Topic[]> {
+    return this.http.get<Topic[]>(this.apiUrl);
   }
 
-  getTopicResults(id: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${id}/result`);
+  getTopicById(id: string): Observable<Topic> {
+    return this.http.get<Topic>(`${this.apiUrl}/${id}`);
   }
 
-  addTopic(topic: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, topic);
+  getTopicResults(id: string): Observable<Topic> {
+    return this.http.get<Topic>(`${this.apiUrl}/result/${id}`);
   }
 
-  updateTopic(id: string, update: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${id}`, update);
+  addTopic(topic: Topic): Observable<Topic> {
+    return this.http.post<Topic>(this.apiUrl, topic);
   }
+
+  updateTopic(id: string, update: Partial<Topic>): Observable<Topic> {
+    return this.http.put<Topic>(`${this.apiUrl}/${id}`, update);
+  }
+
 }

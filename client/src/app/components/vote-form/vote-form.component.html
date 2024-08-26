@@ -1,1 +1,14 @@
-<p>vote-form works!</p>
+<!-- vote-form.component.html -->
+<div class="container mt-4">
+  <h2>Vote for Topic</h2>
+  <form [formGroup]="voteForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="selectedOption">Select Option</label>
+      <select class="form-control" id="selectedOption" formControlName="selectedOption" required>
+        <option *ngFor="let option of topic?.options" [value]="option.option">{{ option.option }}</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Vote</button>
+  </form>
+</div>

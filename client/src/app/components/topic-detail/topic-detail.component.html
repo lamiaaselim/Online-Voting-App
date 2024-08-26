@@ -1,1 +1,19 @@
-<p>topic-detail works!</p>
+<!-- topic-details.component.html -->
+<div class="container mt-4" *ngIf="topic">
+  <h2>{{ topic.statement }}</h2>
+  <p><strong>Start Date:</strong> {{ topic.startDate | date }}</p>
+  <p><strong>End Date:</strong> {{ topic.endDate | date }}</p>
+  <p *ngIf="topic.isCancelled"><strong>Status:</strong> Cancelled</p>
+
+  <h3>Options</h3>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let option of topic.options">
+      {{ option.option }} - {{ option.votes }} votes
+    </li>
+  </ul>
+
+  <h3>You Can votting</h3>
+  <div class="text-center">
+    <a class="btn btn-success" [routerLink]="['/vote', topic._id]">Vote</a>
+  </div>
+</div>

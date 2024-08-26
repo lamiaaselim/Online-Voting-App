@@ -1,1 +1,8 @@
-<p>all-topics works!</p>
+<div class="container mt-4">
+  <h2>All Topics</h2>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let topic of topics">
+      <a class="text-info fs-5 font-weight-bold link-underline link-underline-opacity-0" [routerLink]="['/topic', topic._id]">{{ topic.statement }}</a>
+    </li>
+  </ul>
+</div>

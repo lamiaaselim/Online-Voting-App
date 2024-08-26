@@ -16,6 +16,9 @@ import { TopicDetailComponent } from './components/topic-detail/topic-detail.com
 import { VoteFormComponent } from './components/vote-form/vote-form.component';
 import { AllTopicsComponent } from './components/all-topics/all-topics.component';
 import { AuthInterceptor } from './services/auth.interceptor';
+import { FormsModule } from '@angular/forms';
+import {ReactiveFormsModule } from '@angular/forms';
+import { EditTopicComponent } from './components/edit-topic/edit-topic.component';
 
 
 @NgModule({
@@ -32,8 +35,9 @@ import { AuthInterceptor } from './services/auth.interceptor';
     TopicDetailComponent,
     VoteFormComponent,
     AllTopicsComponent,
+    EditTopicComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule,FormsModule, ReactiveFormsModule],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },],
   bootstrap: [AppComponent],
 })

@@ -1,1 +1,26 @@
-<p>admin-dashboard works!</p>
+<!-- admin-dashboard.component.html -->
+<div class="container mt-4">
+  <h2>Admin Dashboard</h2>
+  <a routerLink="/add-topic" class="btn btn-primary mb-3">Add New Topic</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Statement</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let topic of topics">
+        <td>{{ topic.statement }}</td>
+        <td>{{ topic.startDate | date }}</td>
+        <td>{{ topic.endDate | date }}</td>
+        <td>{{ topic.isCancelled ? 'Cancelled' : 'Active' }}</td>
+        <td>
+          <a [routerLink]="['/edit-topic', topic._id]" class="btn btn-warning btn-sm">Edit</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
