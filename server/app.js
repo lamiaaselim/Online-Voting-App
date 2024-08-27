@@ -6,12 +6,12 @@ const mongoose = require("mongoose");
 const compression = require("compression");
 const NotFoundMiddleware = require("./Middelwares/NotFoundMW");
 const ErrorMiddleware = require("./Middelwares/ErrorMW");
-const authenticateMW = require("./Middelwares/authenticateMW");
+// const authenticateMW = require("./Middelwares/authenticateMW");
 const topicRouter = require("./routes/topicRoute");
 const voteRouter = require("./routes/voteRoute");
 const authRouter = require("./routes/authRoute");
 
-// const socketConfig = require('socket.io')
+
 dotenv.config();
 
 const app = express();

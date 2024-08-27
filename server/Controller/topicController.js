@@ -12,6 +12,17 @@ exports.addTopic = async (req, res) => {
 
 exports.getAllTopics = async (req, res) => {
   try {
+    const topics = await TopicSchema.find().sort({
+      startDate: -1,
+    });
+    res.json(topics);
+  } catch (error) {
+    next(error);
+  }
+};
+
+exports.getActiveTopics = async (req, res) => {
+  try {
     const topics = await TopicSchema.find({ isCancelled: false }).sort({
       startDate: -1,
     });

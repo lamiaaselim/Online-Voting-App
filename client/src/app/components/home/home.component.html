@@ -1,40 +1,14 @@
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-  <h1 class="navbar-brand">
-    <a class="text-success link-underline link-underline-opacity-0" routerLink="/">Voting App</a>
-  </h1>
-  <div class="collapse navbar-collapse">
-    <ul class="navbar-nav me-auto">
-      <!-- Admin Dashboard link only shown if user is an admin -->
-      <li class="nav-item">
-        <a class="text-dark nav-link" routerLink="/admin-dashboard" *ngIf="(authService.currentUser$ | async)?.isAdmin">Admin Dashboard</a>
-      </li>
-      <!-- All Topics link -->
-      <li class="nav-item">
-        <a class="text-dark nav-link" routerLink="/all-topics">All Topics</a>
-      </li>
-      <!-- Audience link -->
-      <li class="nav-item">
-        <a class="text-dark nav-link" routerLink="/audience">Audience</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav ml-auto">
-      <!-- Logout link shown if user is logged in -->
-      <li class="nav-item" *ngIf="authService.isLoggedIn()">
-        <a class="text-dark nav-link" (click)="logout()">Logout</a>
-      </li>
-      <!-- Login link shown if user is not logged in -->
-      <li class="nav-item" *ngIf="!authService.isLoggedIn()">
-        <a class="text-dark nav-link" routerLink="/login">Login</a>
-      </li>
-      <!-- Register link shown if user is not logged in -->
-      <li class="nav-item" *ngIf="!authService.isLoggedIn()">
-        <a class="text-dark nav-link" routerLink="/register">Register</a>
-      </li>
-    </ul>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1 class="text-center text-success">Voting Systym</h1>
+      <p class="text-center fs-5">A representative voting system: Approval Voting</p>
+      <img
+        src="./../../../assets/images/hero_section.png"
+        alt=""
+        width="100%"
+        style="margin: auto; border-radius: 25px"
+      />
+    </div>
   </div>
 </div>
-</nav>
-
-<router-outlet></router-outlet>

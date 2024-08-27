@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const OptionSchema = new mongoose.Schema({
   option: String,
-  votes: { type: Number, default: 0 },
+  votes: { type: Number, default: 0},
 });
 
 const TopicSchema = new mongoose.Schema({

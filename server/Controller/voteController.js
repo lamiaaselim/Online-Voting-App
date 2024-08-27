@@ -2,7 +2,7 @@ const VoteSchema = require("./../Model/voteModel");
 const TopicSchema = require("./../Model/topicModel");
 
 
-exports.addVote = async (req, res) => {
+exports.addVote = async (req, res, next) => {
   try {
     const { nationalId, topicId, selectedOption } = req.body;
 
