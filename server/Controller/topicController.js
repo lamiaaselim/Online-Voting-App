@@ -1,6 +1,6 @@
 const TopicSchema = require("./../Model/topicModel");
 
-exports.addTopic = async (req, res) => {
+exports.addTopic = async (req, res, next) => {
   try {
     const newTopic = new TopicSchema(req.body);
     await newTopic.save();
@@ -10,7 +10,7 @@ exports.addTopic = async (req, res) => {
   }
 };
 
-exports.getAllTopics = async (req, res) => {
+exports.getAllTopics = async (req, res, next) => {
   try {
     const topics = await TopicSchema.find().sort({
       startDate: -1,
@@ -21,7 +21,7 @@ exports.getAllTopics = async (req, res) => {
   }
 };
 
-exports.getActiveTopics = async (req, res) => {
+exports.getActiveTopics = async (req, res, next) => {
   try {
     const topics = await TopicSchema.find({ isCancelled: false }).sort({
       startDate: -1,
@@ -32,7 +32,7 @@ exports.getActiveTopics = async (req, res) => {
   }
 };
 
-exports.updateTopic = async (req, res) => {
+exports.updateTopic = async (req, res, next) => {
   try {
     const topic = await TopicSchema.findById(req.params.id);
     if (!topic) return res.status(404).json({ error: "Topic not found" });
@@ -76,7 +76,7 @@ exports.getTopicById = async (req, res, next) => {
 };
 
 // Show Voting Results for the specified topic
-exports.getResults = async (req, res) => {
+exports.getResults = async (req, res, next) => {
   try {
     const topic = await TopicSchema.findById(req.params.id);
 
