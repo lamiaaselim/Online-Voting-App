@@ -47,7 +47,7 @@
         <input
           type="text"
           class="form-control"
-          name="option"
+          [name]="'option' + i"
           [(ngModel)]="option.option"
           placeholder="Option"
           required
@@ -55,11 +55,15 @@
         <input
           type="number"
           class="form-control"
-          name="votes"
+          [name]="'votes' + i"
           [(ngModel)]="option.votes"
           placeholder="Votes"
           required
         />
+
+        <div class="input-group-prepend">
+          <span class="input-group-text">{{ option.votes }} votes</span>
+        </div>
 
         <div class="input-group-append">
           <button
