@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  font-family :'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.text-purple {
+  color: #655cc9 !important;
+}
+.bg-purple {
+  background-color: #655cc9 !important;
+}
+
+.btn-purple {
+  color: white !important;
+  background-color: #655cc9 !important;
+}
+.btn-purple:hover {
+  color: white !important;
+  background-color: #5e54c2 !important;
+}
+
+.btn-outline-purple {
+  color: #655cc9 !important;
+  background-color: transparent !important;
+  border: 1px solid #655cc9 !important;;
+}
+
+.btn-outline-purple:hover {
+  color: white !important;
+  background-color: #655cc9 !important;
+  border: 2px solid #655cc9 !important;;
+}
+
+.active {
+  color: #655cc9 !important;
+}

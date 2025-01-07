@@ -1,6 +1,6 @@
 <div class="container mt-4">
   <!-- Current Active Topics -->
-  <h2>Current Active Topics</h2>
+  <h2 class="text-purple text-center">Current Active Topics</h2>
   <ul class="list-group mb-4">
     <li class="list-group-item" *ngFor="let topic of activeTopics">
       <a class="link-underline link-underline-opacity-0 font-weight-bold fs-5" [routerLink]="['/topic', topic._id]">{{ topic.statement }}</a>
